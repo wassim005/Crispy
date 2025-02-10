@@ -1,0 +1,1136 @@
+:root{
+    --bg-sinopia: #e04000;
+    --bg-sinopia-alpha-7: #e0400012;
+    --bg-rich-black-fogra-29: #0e1216;
+    --bg-rich-black-rogra-29-alpha-50: #0e121680;
+    --bg-white: #ffffff;
+    --bg-isabelline: #fbf7f4;
+    --bg-seashell: #fdf1ed;
+    --bg-light-gray: #cccccc;
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --text-rich-black-fogra-29: #0e1216;
+    --text-granite-gray: #666666;
+    --border-white-alpha-50: #ffffff80;
+    --border-cultured: #ededed;
+    --border-platinum: #e1dedb;
+    --fontFamily-opensans: 'Open Sans', sans-serif;
+    --fontFamily-forum: 'Forum', cursive;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+a{
+    text-decoration: none;
+    color: var(--text-black);
+}
+body{
+    background: var(--bg-seashell);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    background: var(--bg-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fontFamily-opensans);
+    font-weight: 600;
+    padding: 20px 30px;
+    position: fixed;
+    z-index: 100;
+    width: 97%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+@keyframes open-header {
+    0%{
+        top: -150px;
+        margin-top: 20px;
+        width: 97%;
+    }
+    50%{
+        width: 100%;
+    }
+    100%{
+        width: 100%;
+        top: 0;
+        margin-top: 0;
+        border-radius: 0;
+    }
+}
+@keyframes close-header {
+    0%{
+        top: -150px;
+        width: 100%;
+        margin-top: 0;
+    }
+    50%{
+        width: 97%;
+    }
+    100%{
+        top: 0;
+        width: 97%;
+        margin-top: 20px;
+    }
+}
+header a{
+    transition: 0.3s;
+}
+header a:hover{
+    color: var(--bg-sinopia);
+}
+header .logo img{
+    width: 135px;
+}
+header .links ul{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+}
+header .contact{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+header .contact .num a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400
+}
+header .contact .num a i{
+    color: var(--bg-sinopia);
+}
+header .contact .order{
+    background: var(--bg-sinopia);
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    border-radius: 10px;
+    gap: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+header .contact .order i{
+    font-size: 17px;
+    color: var(--text-white);
+}
+header .contact .order{
+    color: var(--text-white);
+}
+header .contact .order:hover{
+    background: var(--bg-black);
+}
+header .contact .order:hover,
+header .contact .order:hover i{
+    color: var(--bg-sinopia);
+}
+header .menu{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    display: none;
+}
+header .menu .num a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+header .menu .num a i{
+    color: var(--bg-sinopia);
+}
+header .menu .menu-icon i{
+    border: 1px solid var(--bg-light-gray);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text-black);
+}
+header .menu .menu-icon i:hover{
+    border: 1px solid var(--bg-sinopia);
+    color: var(--bg-sinopia);
+}
+header .slide{
+    position: fixed;
+    z-index: 200;
+    left: -300px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh;
+    background: var(--bg-white);
+    display: none;
+    flex-direction: column;
+    padding: 30px 30px 20px 20px;
+    width: 300px;
+}
+.container .scroll-btn{
+    background: var(--bg-sinopia);
+    border-radius: 10px;
+    padding: 15px 15px;
+    position: fixed;
+    z-index: 100;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid var(--bg-isabelline);
+    display: none;
+}
+.container .scroll-btn:hover{
+    background: var(--bg-black);
+}
+.container .scroll-btn i{
+    color: var(--text-white);
+}
+@keyframes open-slide {
+    0%{
+
+    }
+    100%{
+        left: 0;
+    }
+}
+@keyframes close-slide {
+    0%{
+        left: 0;
+    }
+    100%{
+        left: -300px;
+    }
+}
+header .slide .close-slide{
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.3s;
+    width: fit-content;
+    position: absolute;
+    right: 20px;
+    color: var(--text-black);
+}
+header .slide .close-slide:hover{
+    color: var(--bg-sinopia);
+    transform: rotateX(180deg);
+}
+header .slide img{
+    width: 125px;
+    cursor: pointer;
+    margin: 30px auto 0;
+}
+header .slide ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+header .slide ul a{
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom: var(--bg-light-gray) 1px solid;
+    display: inline-block;
+    padding: 20px 0;
+    width: 100%;
+}
+header .slide .table{
+    margin: 50px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-sinopia);
+    padding: 20px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text-white);
+    transition: 0.3s;
+}
+header .slide .table:hover{
+    background: var(--bg-black);
+}
+header .slide .table i{
+    font-size: 20px;
+}
+header .slide .table a{
+    color: var(--text-white);
+}
+header .mode-btn{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-white);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+header .mode-btn i{
+    transition: 1s;
+    font-size: 30px;
+    position: absolute;
+    color: var(--text-black);
+}
+@keyframes icon {
+    0%{
+        opacity: 0.25;
+    }
+    50%{
+        bottom: -35px;
+        opacity: 0;
+    }
+    100%{
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+}
+header .mode-btn i:hover{
+    color: var(--bg-sinopia);
+    scale: 1.125;
+}
+.container{
+    width: 100%;
+}
+section{
+    height: 100vh;
+    font-family: var(--fontFamily-opensans);
+    border-bottom: 2px solid var(--bg-seashell);
+}
+.container .menu{
+    background: var(--bg-sinopia);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.container .menu .title{
+    display: flex;
+    align-items: center;
+    font-family: var(--fontFamily-opensans);
+    gap: 40px;
+    color: var(--text-white);
+}
+.container .menu .title img{
+    width: 75px;
+}
+.container .menu .title h1{
+    font-family: var(--fontFamily-forum);
+    font-weight: 400;
+    font-size: 60px;
+}
+.container .menu .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.container .menu .cards .card{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: var(--bg-white);
+    padding: 15px 30px;
+    border-radius: 25px;
+    filter: drop-shadow(0 0 5px #000000ab);
+    transition: 0.3s;
+    cursor: pointer;
+    width: 600px;
+    height: 250px;
+}
+.container .menu .cards .card:hover{
+    scale: 1.03;
+    background: var(--bg-seashell);
+}
+.container .menu .cards .card img{
+    width: 180px;
+}
+.container .menu .cards .card .description{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.container .menu .cards .card .description h3{
+    font-size: 40px;
+    font-family: var(--fontFamily-forum);
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+.container .menu .cards .card .description p{
+    font-size: 20px;
+    color: var(--text-granite-gray);
+}
+.container .menu .cards .card .description .reviews{
+    display: flex;
+    align-items: center;
+}
+.container .menu .cards .card .description .reviews i{
+    color: var(--bg-sinopia);
+}
+.container .menu .cards .card .description .reviews span{
+    color: var(--text-granite-gray);
+    font-weight: 600;
+    margin-left: 15px;
+}
+.container .menu .cards .card a{
+    transition: 0.1s;
+}
+.container .menu .cards .card a:hover{
+    color: var(--bg-sinopia);
+}
+footer{
+    background: var(--bg-white);
+    padding: 80px 20px;
+}
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+footer a{
+    font-family: var(--fontFamily-opensans);
+}
+footer h2{
+    font-family: var(--fontFamily-forum);
+    font-size: 35px;
+    color: var(--text-black);
+}
+footer .footer-content{
+    display: flex;
+    justify-content: space-around;
+}
+footer .footer-content .footer-logo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .footer-content .footer-logo img{
+    width: 200px;
+}
+footer .footer-content .footer-logo p{
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    width: 70%;
+}
+footer .footer-content .footer-logo .footer-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background: var(--bg-white);
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: solid 1px var(--text-granite-gray);
+}
+footer .footer-content .footer-logo .footer-input input{
+    padding: 15px 25px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+}
+footer .footer-content .footer-logo .footer-input input::placeholder{
+    color: var(--text-black);
+}
+footer .footer-content .footer-logo .footer-input i{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .pro-links{
+    display: flex;
+    gap: 50px;
+}
+footer .footer-content .footer-links,
+footer .footer-content .footer-pro{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+footer .footer-content .footer-links ul li a,
+footer .footer-content .pro-links ul li a{
+    font-size: 17px;
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    transition: 0.3s;
+}
+footer .footer-content .footer-links ul li a:hover,
+footer .footer-content .pro-links ul li a:hover{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .footer-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+footer .footer-content .footer-contact span{
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    font-size: 18px;
+    font-family: var(--fontFamily-opensans);
+}
+footer .footer-content .footer-contact p{
+    font-size: 18px;
+    width: 80%;
+    line-height: 30px;
+}
+footer .footer-content .footer-contact a{
+    transition: 0.3s;
+}
+footer .footer-content .footer-contact a:hover{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .footer-contact .contact-1,
+footer .footer-content .footer-contact .contact-2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .footer-content .footer-contact .contact-1 h1{
+    font-family: var(--fontFamily-forum);
+    font-size: 50px;
+}
+
+
+
+
+
+
+@media (max-width: 1536px) {
+    header .logo img{
+        width: 115px;
+    }
+    .container .menu{
+        gap: 100px;
+    }
+    .container .menu .title{
+        gap: 40px;
+    }
+    .container .menu .title img{
+        width: 70px;
+    }
+    .container .menu .title h1{
+        font-size: 50px;
+    }
+    .container .menu .cards{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .container .menu .cards .card{
+        gap: 30px;
+        padding: 10px 25px;
+        width: 350px;
+        height: 150px;
+    }
+    .container .menu .cards .card img{
+        width: 100px;
+    }
+    .container .menu .cards .card .description{
+        gap: 5px;
+    }
+    .container .menu .cards .card .description h3{
+        font-size: 30px;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+    }
+    .container .menu .cards .card .description p{
+        font-size: 11px;
+    }
+    .container .menu .cards .card .description .reviews i{
+        font-size: 13px;
+    }
+    .container .menu .cards .card .description .reviews span{
+        margin-left: 15px;
+        font-size: 13px;
+    }
+    footer{
+        padding: 80px 20px;
+    }
+    footer ul{
+        gap: 20px;
+    }
+    footer h2{
+        font-size: 25px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 8px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 180px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 18px;
+        line-height: 28px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 30px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 30px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 18px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 15px;
+        line-height: 27px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-family: var(--fontFamily-forum);
+        font-size: 40px;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+    header .logo img{
+        width: 105px;
+    }
+    header .contact .order{
+        padding: 15px 25px;
+    }
+    header .mode-btn{
+        bottom: -45px;
+        width: 125px;
+        height: 45px;
+    }
+    header .mode-btn i{
+        font-size: 28px;
+    }
+    header .contact .order{
+        padding: 15px 25px;
+    }
+    .container .menu{
+        gap: 100px;
+    }
+    .container .menu .title{
+        gap: 40px;
+    }
+    .container .menu .title img{
+        width: 70px;
+    }
+    .container .menu .title h1{
+        font-size: 50px;
+    }
+    .container .menu .cards{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    .container .menu .cards .card{
+        gap: 30px;
+        padding: 10px 20px;
+        width: 300px;
+        height: 150px;
+    }
+    .container .menu .cards .card img{
+        width: 80px;
+    }
+    .container .menu .cards .card .description{
+        gap: 5px;
+    }
+    .container .menu .cards .card .description h3{
+        font-size: 25px;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+    }
+    .container .menu .cards .card .description p{
+        font-size: 8px;
+    }
+    .container .menu .cards .card .description .reviews i{
+        font-size: 10px;
+    }
+    .container .menu .cards .card .description .reviews span{
+        margin-left: 15px;
+        font-size: 12px;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 50px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 14px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 13px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 30px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .mode-btn{
+        bottom: -40px;
+        width: 100px;
+        height: 40px;
+    }
+    header .mode-btn i{
+        font-size: 25px;
+    }
+    header .contact .order{
+        padding: 15px 20px;
+    } 
+    .container .menu{
+        gap: 100px;
+    }
+    .container .menu .title{
+        gap: 40px;
+    }
+    .container .menu .title img{
+        width: 70px;
+    }
+    .container .menu .title h1{
+        font-size: 50px;
+    }
+    .container .menu .cards{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .container .menu .cards .card{
+        gap: 27px;
+        padding: 10px 20px;
+        width: 350px;
+    }
+    .container .menu .cards .card img{
+        width: 90px;
+    }
+    .container .menu .cards .card .description{
+        gap: 5px;
+    }
+    .container .menu .cards .card .description h3{
+        font-size: 30px;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+    }
+    .container .menu .cards .card .description p{
+        font-size: 13px;
+    }
+    .container .menu .cards .card .description .reviews i{
+        font-size: 10px;
+    }
+    .container .menu .cards .card .description .reviews span{
+        margin-left: 15px;
+        font-size: 13px;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 50px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 0px 0px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 7px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 13px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 30px;
+    }
+}
+@media (min-width: 596px) and (max-width: 768px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .mode-btn{
+        bottom: -40px;
+        width: 100px;
+        height: 40px;
+    }
+    header .mode-btn i{
+        font-size: 23px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+    .container .menu{
+        gap: 60px;
+    }
+    .container .menu .title{
+        gap: 40px;
+    }
+    .container .menu .title img{
+        width: 40px;
+    }
+    .container .menu .title h1{
+        font-size: 40px;
+    }
+    .container .menu .cards{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .container .menu .cards .card{
+        gap: 25px;
+        padding: 10px 15px;
+        width: 300px;
+    }
+    .container .menu .cards .card img{
+        width: 50px;
+    }
+    .container .menu .cards .card .description{
+        gap: 5px;
+    }
+    .container .menu .cards .card .description h3{
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+    }
+    .container .menu .cards .card .description p{
+        font-size: 10px;
+    }
+    .container .menu .cards .card .description .reviews i{
+        font-size: 10px;
+    }
+    .container .menu .cards .card .description .reviews span{
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 30px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 80%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-pro{
+        display: none;
+    }
+    footer .footer-content .footer-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 13px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 10px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 5px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 25px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+}
+@media (max-width: 595px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .menu .num{
+        display: none;
+    }
+    header .mode-btn{
+        bottom: -30px;
+        width: 80px;
+        height: 30px;
+    }
+    header .mode-btn i{
+        font-size: 20px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+    .container .menu{
+        gap: 40px;
+    }
+    .container .menu .title{
+        gap: 20px;
+    }
+    .container .menu .title img{
+        width: 30px;
+    }
+    .container .menu .title h1{
+        font-size: 30px;
+    }
+    .container .menu .cards{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .container .menu .cards .card{
+        gap: 20px;
+        padding: 10px;
+        width: 180px;
+        height: 80px;
+    }
+    .container .menu .cards .card img{
+        width: 30px;
+    }
+    .container .menu .cards .card .description{
+        gap: 5px;
+    }
+    .container .menu .cards .card .description h3{
+        font-size: 15px;
+        letter-spacing: 1.5px;
+        margin-bottom: 0px;
+    }
+    .container .menu .cards .card .description p{
+        font-size: 5px;
+    }
+    .container .menu .cards .card .description .reviews i{
+        font-size: 8px;
+    }
+    .container .menu .cards .card .description .reviews span{
+        margin-left: 10px;
+        font-size: 8px;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 30px;
+        justify-content: center;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 100px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 10px;
+        line-height: 20px;
+        width: 90%;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 80%;
+        padding: 5px 15px;
+        margin-top: 20px;
+        display: none;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-links{
+        display: none;
+    }
+    footer .footer-content .footer-pro{
+        display: none;
+    }
+    footer .footer-content .footer-contact{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 13px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 10px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 5px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 25px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+}

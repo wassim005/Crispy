@@ -1,0 +1,2180 @@
+:root{
+    --bg-sinopia: #e04000;
+    --bg-sinopia-alpha-7: #e0400012;
+    --bg-rich-black-fogra-29: #0e1216;
+    --bg-rich-black-rogra-29-alpha-50: #0e121680;
+    --bg-white: #ffffff;
+    --bg-isabelline: #fbf7f4;
+    --bg-seashell: #fdf1ed;
+    --bg-light-gray: #cccccc;
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --text-rich-black-fogra-29: #0e1216;
+    --text-granite-gray: #666666;
+    --border-white-alpha-50: #ffffff80;
+    --border-cultured: #ededed;
+    --border-platinum: #e1dedb;
+    --fontFamily-opensans: 'Open Sans', sans-serif;
+    --fontFamily-forum: 'Forum', cursive;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+a{
+    text-decoration: none;
+    color: var(--text-black);
+}
+body{
+    background: var(--bg-seashell);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    background: var(--bg-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fontFamily-opensans);
+    font-weight: 600;
+    padding: 20px 30px;
+    position: fixed;
+    z-index: 100;
+    width: 97%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+@keyframes open-header {
+    0%{
+        top: -150px;
+        margin-top: 20px;
+        width: 97%;
+    }
+    50%{
+        width: 100%;
+    }
+    100%{
+        width: 100%;
+        top: 0;
+        margin-top: 0;
+        border-radius: 0;
+    }
+}
+@keyframes close-header {
+    0%{
+        top: -150px;
+        width: 100%;
+        margin-top: 0;
+    }
+    50%{
+        width: 97%;
+    }
+    100%{
+        top: 0;
+        width: 97%;
+        margin-top: 20px;
+    }
+}
+header a{
+    transition: 0.3s;
+}
+header a:hover{
+    color: var(--bg-sinopia);
+}
+header .logo img{
+    width: 135px;
+}
+header .links ul{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+}
+header .contact{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+header .contact .num a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400
+}
+header .contact .num a i{
+    color: var(--bg-sinopia);
+}
+header .contact .order{
+    background: var(--bg-sinopia);
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    border-radius: 10px;
+    gap: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+header .contact .order i{
+    font-size: 17px;
+    color: var(--text-white);
+}
+header .contact .order{
+    color: var(--text-white);
+}
+header .contact .order:hover{
+    background: var(--bg-black);
+}
+header .contact .order:hover,
+header .contact .order:hover i{
+    color: var(--bg-sinopia);
+}
+header .menu{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    display: none;
+}
+header .menu .num a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+header .menu .num a i{
+    color: var(--bg-sinopia);
+}
+header .menu .menu-icon i{
+    border: 1px solid var(--bg-light-gray);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text-black);
+}
+header .menu .menu-icon i:hover{
+    border: 1px solid var(--bg-sinopia);
+    color: var(--bg-sinopia);
+}
+header .slide{
+    position: fixed;
+    z-index: 200;
+    left: -300px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh;
+    background: var(--bg-white);
+    display: none;
+    flex-direction: column;
+    padding: 30px 30px 20px 20px;
+    width: 300px;
+}
+@keyframes open-slide {
+    0%{
+
+    }
+    100%{
+        left: 0;
+    }
+}
+@keyframes close-slide {
+    0%{
+        left: 0;
+    }
+    100%{
+        left: -300px;
+    }
+}
+header .slide .close-slide{
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.3s;
+    width: fit-content;
+    position: absolute;
+    right: 20px;
+    color: var(--text-black);
+}
+header .slide .close-slide:hover{
+    color: var(--bg-sinopia);
+    transform: rotateX(180deg);
+}
+header .slide img{
+    width: 125px;
+    cursor: pointer;
+    margin: 30px auto 0;
+}
+header .slide ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+header .slide ul a{
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom: var(--bg-light-gray) 1px solid;
+    display: inline-block;
+    padding: 20px 0;
+    width: 100%;
+}
+header .slide .table{
+    margin: 50px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-sinopia);
+    padding: 20px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text-white);
+    transition: 0.3s;
+}
+header .slide .table:hover{
+    background: var(--bg-black);
+}
+header .slide .table i{
+    font-size: 20px;
+}
+header .slide .table a{
+    color: var(--text-white);
+}
+header .mode-btn{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-white);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+header .mode-btn i{
+    transition: 1s;
+    font-size: 30px;
+    position: absolute;
+    color: var(--text-black);
+}
+@keyframes icon {
+    0%{
+        opacity: 0.25;
+    }
+    50%{
+        bottom: -35px;
+        opacity: 0;
+    }
+    100%{
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+}
+header .mode-btn i:hover{
+    color: var(--bg-sinopia);
+    scale: 1.125;
+}
+
+.container{
+    width: 100%;
+}
+section{
+    height: 100vh;
+    font-family: var(--fontFamily-opensans);
+    border-bottom: 2px solid var(--bg-sinopia);
+}
+.container .home .home-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    position: relative;
+    width: 85%;
+    margin: auto;
+}
+.container .home .home-content .back{
+    position: absolute;
+    z-index: -1;
+    opacity: 0.05;
+}
+.container .home .home-content .back1{
+    left: 0;
+    bottom: 20%;
+}
+.container .home .home-content .back2{
+    right: 0;
+    bottom: 5%;
+}
+.container .home .home-content .back3{
+    right: 20%;
+    top: 17%;
+}
+.container .home .home-content .text{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 45%;
+}
+.container .home .home-content .text h1{
+    font-size: 120px;
+    width: 60%;
+    font-weight: 400;
+    line-height: 120px;
+    letter-spacing: 2px;
+    font-family: var(--fontFamily-forum);
+    color: var(--text-black);
+}
+.container .home .home-content .text p{
+    color: var(--text-granite-gray);
+    font-size: 20px;
+    width: 90%;
+    line-height: 35px;
+}
+.container .home .home-content .text .order-now{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.container .home .home-content .text .order-now i{
+    color: var(--bg-sinopia);
+    font-size: 50px;
+}
+.container .home .home-content .text .order-now .now a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--text-white);
+    background: var(--bg-sinopia);
+    padding: 20px 35px;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 16px;
+    font-weight: 600;
+}
+.container .home .home-content .text .order-now .now a:hover{
+    background: var(--bg-black);
+    color: var(--bg-sinopia);
+}
+.container .home .home-content .text .order-now .now a i{
+    font-size: 20px;
+    color: inherit;
+}
+.container .home .home-content .hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.container .home .home-content .hero .crispy{
+    z-index: 1;
+    border-radius: 10px;
+}
+.container .home .home-content .hero .line{
+    position: absolute;
+    left: 20%;
+}
+
+.container .menu{
+    background: var(--bg-sinopia);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.container .menu .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: var(--text-white);
+}
+.container .menu .title .logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--fontFamily-opensans);
+}
+.container .menu .title h1{
+    font-family: var(--fontFamily-forum);
+    font-weight: 400;
+    font-size: 60px;
+}
+.container .menu .menu-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.container .menu .menu-content .card{
+    background: var(--bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 50px;
+    border-radius: 10px;
+    width: 500px;
+}
+.container .menu .menu-content .card .element{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.container .menu .menu-content .card .element a{
+    font-size: 30px;
+    transition: 0.3s;
+    font-family: var(--fontFamily-forum);
+}
+.container .menu .menu-content .card .element a:hover{
+    color: var(--bg-sinopia);
+}
+.container .menu .menu-content .card i{
+    border: var(--bg-light-gray) 1px solid;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--bg-black);
+    opacity: 0.7;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.container .menu .menu-content .card i:hover{
+    border: var(--bg-sinopia) 1px solid;
+    color: var(--bg-sinopia);
+}
+
+.container .shop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-family: var(--fontFamily-opensans);
+}
+.container .shop .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.container .shop .logo .title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.container .shop .logo .title h3{
+    font-size: 22px;
+    color: var(--bg-sinopia);
+}
+.container .shop .logo h1{
+    font-family: var(--fontFamily-forum);
+    font-size: 70px;
+    font-weight: 400;
+    color: var(--text-black);
+}
+.container .shop .shop-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+.container .shop .shop-content .hero img{
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000000ab;
+}
+.container .shop .shop-content .food-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container .shop .shop-content .food-content .food{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.container .shop .shop-content .food-content .food img{
+    width: 130px;
+    filter: drop-shadow(0 0 10px #000000ab);
+}
+.container .shop .shop-content .food-content .food .food-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.container .shop .shop-content .food-content .food .food-desc p{
+    font-family: var(--fontFamily-forum);
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+.container .shop .shop-content .food-content .food .food-desc p:hover{
+    color: var(--bg-sinopia);
+}
+.container .shop .shop-content .food-content .food .food-desc h3{
+    color: var(--text-granite-gray);
+    opacity: 0.8;
+    font-weight: 550;
+    font-size: 15px;
+}
+.container .shop .shop-content .food-content .food .food-desc .reviews{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.container .shop .shop-content .food-content .food .food-desc .reviews i{
+    color: var(--bg-sinopia);
+}
+.container .shop .shop-content .food-content .food .food-desc .reviews span{
+    margin-left: 15px;
+    color: var(--text-granite-gray);
+    opacity: 0.8;
+    font-weight: 550;
+}
+
+.container .about{
+    background: var(--bg-sinopia-alpha-7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .about .about-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.container .about .about-content .about-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 45%;
+}
+.container .about .about-content .about-text .about-header{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.container .about .about-content .about-text .about-header .about-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: fit-content;
+}
+.container .about .about-content .about-text .about-header .about-title h3{
+    color: var(--bg-sinopia);
+}
+.container .about .about-content .about-text .about-header h1{
+    font-family: var(--fontFamily-forum);
+    font-size: 60px;
+    font-weight: 400;
+    width: 90%;
+    line-height: 80px;
+    color: var(--text-black);
+}
+.container .about .about-content .about-text .time{
+    background: url(images/schedule-item-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 550px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    filter: drop-shadow(0 0 5px #000000ab);
+}
+.container .about .about-content .about-text .time p{
+    font-weight: 600;
+    font-size: 23px;
+    color: var(--text-white);
+    letter-spacing: 2px;
+    font-family: var(--fontFamily-forum);
+}
+.container .about .about-content .about-hero img{
+    border-radius: 10px;
+    width: 850px;
+    box-shadow: 0 0 20px #000000ab;
+}
+
+.container .reservation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .reservation .reservation-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 100px;
+    width: 100%;
+}
+.container .reservation .reservation-content .reservation-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+}
+.container .reservation .reservation-content .reservation-text .reservation-logo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+}
+.container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title h3{
+    color: var(--bg-sinopia);
+}
+.container .reservation .reservation-content .reservation-text .reservation-logo h1{
+    font-family: var(--fontFamily-forum);
+    font-weight: 400;
+    font-size: 70px;
+    color: var(--text-black);
+}
+.container .reservation .reservation-content .reservation-text p{
+    font-weight: 550;
+    color: var(--text-granite-gray);
+    opacity: 0.7;
+    font-size: 20px;
+    width: 70%;
+    letter-spacing: 1.5px;
+    line-height: 30px;
+}
+.container .reservation .reservation-content .reservation-text .form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 20px;
+    gap: 30px;
+}
+.container .reservation .reservation-content .reservation-text .form .input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-sinopia-alpha-7);
+    border: var(--bg-light-gray) 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+@keyframes input{
+    0%{
+
+    }
+    20%{
+        transform: translateY(5px);
+        box-shadow: 0 0 10px red;
+    }
+    40%{
+        transform: translateY(-5px);
+    }
+    60%{
+        transform: translateY(5px);
+    }
+    80%{
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px red;
+    }
+    100%{
+
+    }
+}
+@keyframes close-input{
+    0%{
+
+    }
+    50%{
+        transform: translateY(50%);
+        bottom: 50%;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100%{
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        opacity: 0;
+        width: 0;
+        display: none;
+    }
+}
+.container .reservation .reservation-content .reservation-text .form .input:hover{
+    background: #ffcdb9;
+}
+.container .reservation .reservation-content .reservation-text .form .input span{
+    position: absolute;
+    bottom: -30%;
+    left: 3%;
+    font-weight: 600;
+    font-size: 14px;
+    color: red;
+    display: none;
+}
+.container .reservation .reservation-content .reservation-text .form .input input{
+    padding: 30px 35px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-black);
+    font-weight: 600;
+    font-size: 20px;
+    width: 100%;
+}
+.container .reservation .reservation-content .reservation-text .form .input input::placeholder{
+    color: var(--text-black);
+}
+.container .reservation .reservation-content .reservation-text .form .input i{
+    position: absolute;
+    right: 5%;
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+    display: none;
+}
+.container .reservation .reservation-content .reservation-text button{
+    background: var(--bg-sinopia);
+    color: var(--text-white);
+    font-weight: 600;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 45px;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.container .reservation .reservation-content .reservation-text button:hover{
+    background: var(--bg-black);
+    color: var(--bg-sinopia);
+}
+.container .reservation .reservation-content .reservation-text .yours{
+    opacity: 1;
+    color: var(--text-black);
+    width: 100%;
+    line-height: 40px;
+    opacity: 0;
+    display: none;
+}
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.container .reservation .reservation-content .reservation-text .yours span{
+    color: var(--bg-sinopia);
+    font-family: var(--fontFamily-forum);
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+.container .reservation .reservation-content .reservation-hero img{
+    width: 650px;
+    border-radius: 10px;
+}
+
+footer{
+    background: var(--bg-white);
+    padding: 80px 20px;
+}
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+footer a{
+    font-family: var(--fontFamily-opensans);
+}
+footer h2{
+    font-family: var(--fontFamily-forum);
+    font-size: 35px;
+    color: var(--text-black);
+}
+footer .footer-content{
+    display: flex;
+    justify-content: space-around;
+}
+footer .footer-content .footer-logo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .footer-content .footer-logo img{
+    width: 200px;
+}
+footer .footer-content .footer-logo p{
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    width: 70%;
+}
+footer .footer-content .footer-logo .footer-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background: var(--bg-white);
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: solid 1px var(--text-granite-gray);
+}
+footer .footer-content .footer-logo .footer-input input{
+    padding: 15px 25px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+}
+footer .footer-content .footer-logo .footer-input input::placeholder{
+    color: var(--text-black);
+}
+footer .footer-content .footer-logo .footer-input i{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .pro-links{
+    display: flex;
+    gap: 50px;
+}
+footer .footer-content .footer-links,
+footer .footer-content .footer-pro{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+footer .footer-content .footer-links ul li a,
+footer .footer-content .pro-links ul li a{
+    font-size: 17px;
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    transition: 0.3s;
+}
+footer .footer-content .footer-links ul li a:hover,
+footer .footer-content .pro-links ul li a:hover{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .footer-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+footer .footer-content .footer-contact span{
+    color: var(--text-granite-gray);
+    opacity: 0.9;
+    font-size: 18px;
+    font-family: var(--fontFamily-opensans);
+}
+footer .footer-content .footer-contact p{
+    font-size: 18px;
+    width: 80%;
+    line-height: 30px;
+}
+footer .footer-content .footer-contact a{
+    transition: 0.3s;
+}
+footer .footer-content .footer-contact a:hover{
+    color: var(--bg-sinopia);
+}
+footer .footer-content .footer-contact .contact-1,
+footer .footer-content .footer-contact .contact-2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .footer-content .footer-contact .contact-1 h1{
+    font-family: var(--fontFamily-forum);
+    font-size: 50px;
+}
+.container .scroll-btn{
+    background: var(--bg-sinopia);
+    border-radius: 10px;
+    padding: 15px 15px;
+    position: fixed;
+    z-index: 100;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid var(--bg-isabelline);
+    display: none;
+}
+.container .scroll-btn:hover{
+    background: var(--bg-black);
+}
+.container .scroll-btn i{
+    color: var(--text-white);
+}
+
+
+
+
+
+@media (max-width: 1536px) {
+    header .logo img{
+        width: 115px;
+    }
+    .container .home .home-content .text h1{
+        font-size: 90px;
+        width: 60%;
+        line-height: 90px;
+    }
+    .container .home .home-content .back{
+        width: 200px;
+    }
+    .container .home .home-content .back1{
+        bottom: 25%;
+        width: 300px;
+    }
+    .container .home .home-content .back3{
+        right: 40%;
+    }
+    .container .home .home-content .text p{
+        font-size: 17px;
+        width: 90%;
+        line-height: 35px;
+    }
+    .container .home .home-content .hero .line,
+    .container .home .home-content .hero .crispy{
+        width: 500px;
+    }
+    header .contact .order{
+        padding: 15px 25px;
+    }
+    .container .home .home-content .text .order-now .now a{
+        padding: 17px 30px;
+    }
+    .container .menu .menu-content .card{
+        padding: 20px 40px;
+        width: 370px;
+    }
+    .container .shop .logo{
+        gap: 20px;
+    }
+    .container .shop .logo .title h3{
+        font-size: 18px;
+    }
+    .container .shop .logo h1{
+        font-size: 55px;
+    }
+    .container .shop .shop-content .hero img{
+        width: 350px;
+    }
+    .container .shop .shop-content .food-content .food img{
+        width: 100px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc{
+        gap: 10px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc p{
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc h3{
+        font-size: 15px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews i{
+        font-size: 20px;
+    }
+    .container .about .about-content .about-text .about-header{
+        margin-bottom: 20px;
+    }
+    .container .about .about-content .about-text .about-header h1{
+        font-size: 50px;
+        line-height: 70px;
+    }
+    .container .about .about-content .about-text .time{
+        width: 450px;
+        height: 65px;
+    }
+    .container .about .about-content .about-text .time p{
+        font-size: 18px;
+    }
+    .container .about .about-content .about-hero img{
+        width: 650px;
+    }
+    .container .reservation .reservation-content{
+        gap: 0;
+        justify-content: space-around;
+    }
+    .container .reservation .reservation-content .reservation-text{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo h1{
+        font-size: 60px;
+    }
+    .container .reservation .reservation-content .reservation-text p{
+        font-weight: 500;
+        font-size: 17px;
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+    .container .reservation .reservation-content .reservation-text .form{
+        width: 70%;
+        margin-top: 20px;
+        gap: 25px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input span{
+        bottom: -25%;
+        left: 3%;
+        font-size: 12px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input input{
+        padding: 25px 35px;
+        font-size: 18px;
+    }
+    .container .reservation .reservation-content .reservation-text button{
+        padding: 18px 35px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours span{
+        font-size: 20px;
+    }
+    .container .reservation .reservation-content .reservation-hero img{
+        width: 500px;
+    }
+    footer{
+        padding: 80px 20px;
+    }
+    footer ul{
+        gap: 20px;
+    }
+    footer h2{
+        font-size: 25px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 8px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 180px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 18px;
+        line-height: 28px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 30px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 30px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 18px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 15px;
+        line-height: 27px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-family: var(--fontFamily-forum);
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    header .logo img{
+        width: 105px;
+    }
+    header .contact .order{
+        padding: 15px 25px;
+    }
+    header .mode-btn{
+        bottom: -45px;
+        width: 125px;
+        height: 45px;
+    }
+    header .mode-btn i{
+        font-size: 28px;
+    }
+    .container .home .home-content .text h1{
+        font-size: 75px;
+        width: 60%;
+        line-height: 75px;
+    }
+    .container .home .home-content .back{
+        width: 200px;
+    }
+    .container .home .home-content .back1{
+        bottom: 25%;
+        width: 300px;
+    }
+    .container .home .home-content .back3{
+        right: 40%;
+    }
+    .container .home .home-content .text p{
+        font-size: 15px;
+        width: 90%;
+        line-height: 30px;
+    }
+    .container .home .home-content .hero .line,
+    .container .home .home-content .hero .crispy{
+        width: 400px;
+    }
+    header .contact .order{
+        padding: 15px 25px;
+    }
+    .container .home .home-content .text .order-now .now a{
+        padding: 15px 27px;
+    }
+    .container .menu .menu-content .card{
+        padding: 20px 40px;
+        width: 300px;
+    }
+    .container .menu .menu-content .card .element{
+        gap: 20px;
+    }
+    .container .menu .menu-content .card .element a{
+        font-size: 25px;
+    }
+    .container .menu .menu-content .card .element img{
+        width: 50px;
+    }
+    .container .menu .menu-content .card i{
+        padding: 7px;
+    }
+    .container .shop .logo h1{
+        font-size: 55px;
+    }
+    .container .shop .shop-content .hero img{
+        width: 280px;
+    }
+    .container .shop .shop-content .food-content .food img{
+        width: 75px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc{
+        gap: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc p{
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc h3{
+        font-size: 13px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews{
+        margin-top: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews i{
+        font-size: 15px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews span{
+        font-size: 13px;
+    }
+    .container .about .about-content .about-text .about-header{
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title{
+        gap: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title h3{
+        font-size: 15px;
+    }
+    .container .about .about-content .about-text .about-header h1{
+        font-size: 35px;
+        line-height: 45px;
+    }
+    .container .about .about-content .about-text .time{
+        width: 320px;
+        height: 50px;
+        margin-top: 10px;
+    }
+    .container .about .about-content .about-text .time p{
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    .container .about .about-content .about-hero img{
+        width: 400px;
+    }
+    .container .reservation .reservation-content{
+        gap: 0;
+        justify-content: space-around;
+    }
+    .container .reservation .reservation-content .reservation-text{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title h3{
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo h1{
+        font-size: 50px;
+    }
+    .container .reservation .reservation-content .reservation-text p{
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form{
+        width: 100%;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input span{
+        bottom: -27%;
+        left: 3%;
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input input{
+        padding: 20px 25px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text button{
+        padding: 14px 30px;
+        font-size: 13px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours{
+        line-height: 30px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours span{
+        font-size: 20px;
+    }
+    .container .reservation .reservation-content .reservation-hero img{
+        width: 400px;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 50px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 14px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 13px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .mode-btn{
+        bottom: -40px;
+        width: 100px;
+        height: 40px;
+    }
+    header .mode-btn i{
+        font-size: 25px;
+    }
+    .container .home .home-content .text{
+        gap: 20px;
+        width: 45%;
+    }
+    .container .home .home-content .text h1{
+        font-size: 60px;
+        width: 60%;
+        line-height: 60px;
+    }
+    .container .home .home-content .back{
+        width: 180px;
+    }
+    .container .home .home-content .back1{
+        bottom: 25%;
+        width: 280px;
+    }
+    .container .home .home-content .back2{
+        bottom: 10%;
+    }
+    .container .home .home-content .back3{
+        right: 30%;
+    }
+    .container .home .home-content .text p{
+        font-size: 14px;
+        width: 100%;
+        line-height: 28px;
+    }
+    .container .home .home-content .hero .line,
+    .container .home .home-content .hero .crispy{
+        width: 325px;
+    }
+    header .contact .order{
+        padding: 15px 20px;
+    }
+    .container .home .home-content .text .order-now i{
+        font-size: 32px;
+    }
+    .container .home .home-content .text .order-now .now a{
+        padding: 13px 20px;
+        font-size: 13px;
+        gap: 10px;
+    }
+    .container .home .home-content .text .order-now .now a i{
+        font-size: 18px;
+    }
+    .container .menu .menu-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .container .menu .title h1{
+        font-size: 50px;
+    }
+    .container .menu .menu-content .card{
+        padding: 20px 30px;
+        width: 350px;
+        gap: 20px;
+    }
+    .container .menu .menu-content .card .element{
+        gap: 10px;
+    }
+    .container .menu .menu-content .card .element a{
+        font-size: 25px;
+    }
+    .container .menu .menu-content .card .element img{
+        width: 65px;
+    }
+    .container .menu .menu-content .card i{
+        padding: 10px;
+        font-size: 25px;
+    }
+    .container .shop .logo h1{
+        font-size: 50px;
+    }
+    .container .shop .shop-content .hero img{
+        width: 225px;
+    }
+    .container .shop .shop-content .food-content .food{
+        gap: 20px;
+    }
+    .container .shop .shop-content .food-content .food img{
+        width: 60px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc{
+        gap: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc p{
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc h3{
+        font-size: 10px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews{
+        margin-top: 3px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews i{
+        font-size: 10px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews span{
+        font-size: 10px;
+    }
+    .container .about .about-content .about-text .about-header{
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title{
+        gap: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title h3{
+        font-size: 15px;
+    }
+    .container .about .about-content .about-text .about-header h1{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .container .about .about-content .about-text .time{
+        width: 320px;
+        height: 50px;
+        margin-top: 10px;
+    }
+    .container .about .about-content .about-text .time p{
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    .container .about .about-content .about-hero img{
+        width: 400px;
+    }
+    .container .reservation .reservation-content{
+        gap: 0;
+        justify-content: center;
+    }
+    .container .reservation .reservation-content .reservation-text{
+        gap: 10px;
+        width: 80%;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title h3{
+        font-size: 16px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo h1{
+        font-size: 60px;
+    }
+    .container .reservation .reservation-content .reservation-text p{
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form{
+        width: 80%;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input span{
+        bottom: -25%;
+        left: 3%;
+        font-size: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input input{
+        padding: 25px 35px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text button{
+        padding: 17px 35px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours{
+        line-height: 30px;
+    }
+    .container .reservation .reservation-content .reservation-hero{
+        display: none;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 50px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 70%;
+        padding: 0px 0px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 7px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .footer-pro{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 13px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 596px) and (max-width: 768px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .mode-btn{
+        bottom: -40px;
+        width: 100px;
+        height: 40px;
+    }
+    header .mode-btn i{
+        font-size: 23px;
+    }
+    .container .home .home-content .text{
+        gap: 10px;
+        width: 50%;
+    }
+    .container .home .home-content .text h1{
+        font-size: 50px;
+        width: 60%;
+        line-height: 60px;
+    }
+    .container .home .home-content .back{
+        width: 180px;
+    }
+    .container .home .home-content .back1{
+        bottom: 25%;
+        width: 220px;
+    }
+    .container .home .home-content .back2{
+        bottom: 10%;
+    }
+    .container .home .home-content .back3{
+        right: 30%;
+    }
+    .container .home .home-content .text p{
+        font-size: 13px;
+        width: 100%;
+        line-height: 25px;
+    }
+    .container .home .home-content .hero .line,
+    .container .home .home-content .hero .crispy{
+        width: 230px;
+    }
+    .container .home .home-content .text .order-now{
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .container .home .home-content .text .order-now i{
+        font-size: 25px;
+    }
+    .container .home .home-content .text .order-now .now a{
+        padding: 10px 17px;
+        font-size: 12px;
+        gap: 5px;
+    }
+    .container .home .home-content .text .order-now .now a i{
+        font-size: 18px;
+    }
+    .container .menu .title h1{
+        font-size: 50px;
+    }
+    .container .menu .menu-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .container .menu .menu-content .card{
+        padding: 18px 25px;
+        width: 225px;
+    }
+    .container .menu .menu-content .card .element{
+        gap: 10px;
+    }
+    .container .menu .menu-content .card .element a{
+        font-size: 20px;
+    }
+    .container .menu .menu-content .card .element img{
+        width: 35px;
+    }
+    .container .menu .menu-content .card i{
+        padding: 5px;
+        font-size: 20px;
+    }
+    .container .shop .logo h1{
+        font-size: 50px;
+    }
+    .container .shop .shop-content{
+        justify-content: center;
+        gap: 0;
+    }
+    .container .shop .shop-content .hero img{
+        display: none;
+    }
+    .container .shop .shop-content .food-content .food{
+        gap: 20px;
+    }
+    .container .shop .shop-content .food-content .food img{
+        width: 75px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc{
+        gap: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc p{
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc h3{
+        font-size: 15px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews{
+        margin-top: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews i{
+        font-size: 15px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews span{
+        font-size: 15px;
+    }
+    .container .about .about-content .about-text{
+        width: 80%;
+        gap: 20px;
+    }
+    .container .about .about-content .about-text .about-header{
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title{
+        gap: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title h3{
+        font-size: 20px;
+    }
+    .container .about .about-content .about-text .about-header h1{
+        font-size: 50px;
+        line-height: 60px;
+        width: 100%;
+    }
+    .container .about .about-content .about-text .time{
+        width: 510px;
+        height: 80px;
+        margin-top: 10px;
+    }
+    .container .about .about-content .about-text .time p{
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    .container .about .about-content .about-hero{
+        display: none;
+    }
+    .container .reservation .reservation-content{
+        gap: 0;
+        justify-content: center;
+    }
+    .container .reservation .reservation-content .reservation-text{
+        gap: 10px;
+        width: 90%;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title h3{
+        font-size: 16px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo h1{
+        font-size: 60px;
+    }
+    .container .reservation .reservation-content .reservation-text p{
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form{
+        width: 80%;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input input{
+        padding: 25px 35px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input span{
+        bottom: -25%;
+        left: 3%;
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text button{
+        padding: 17px 35px;
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours{
+        line-height: 30px;
+    }
+    .container .reservation .reservation-content .reservation-hero{
+        display: none;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 30px;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 150px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 80%;
+        padding: 5px 15px;
+        margin-top: 20px;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .pro-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-pro{
+        display: none;
+    }
+    footer .footer-content .footer-links{
+        gap: 20px;
+    }
+    footer .footer-content .footer-links ul li a,
+    footer .footer-content .pro-links ul li a{
+        font-size: 11px;
+    }
+    footer .footer-content .footer-contact{
+        gap: 40px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 13px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 10px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 5px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 25px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 595px) {
+    header .logo img{
+        width: 100px;
+    }
+    header .contact,
+    header .links{
+        display: none;
+    }
+    header .menu{
+        display: flex;
+    }
+    header .menu .num{
+        display: none;
+    }
+    header .mode-btn{
+        bottom: -30px;
+        width: 80px;
+        height: 30px;
+    }
+    header .mode-btn i{
+        font-size: 20px;
+    }
+    .container .home .home-content .text{
+        gap: 20px;
+        width: 100%;
+    }
+    .container .home .home-content .text h1{
+        font-size: 70px;
+        width: 60%;
+        line-height: 70px;
+    }
+    .container .home .home-content .back{
+        width: 180px;
+    }
+    .container .home .home-content .back1{
+        bottom: 25%;
+        width: 220px;
+    }
+    .container .home .home-content .back2{
+        bottom: 10%;
+    }
+    .container .home .home-content .back3{
+        right: 30%;
+    }
+    .container .home .home-content .text p{
+        font-size: 15px;
+        width: 100%;
+        line-height: 28px;
+    }
+    .container .home .home-content .hero .line,
+    .container .home .home-content .hero .crispy{
+        display: none;
+    }
+    .container .home .home-content .text .order-now{
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .container .home .home-content .text .order-now i{
+        font-size: 32px;
+    }
+    .container .home .home-content .text .order-now .now a{
+        padding: 15px 30px;
+        font-size: 15px;
+        gap: 5px;
+    }
+    .container .home .home-content .text .order-now .now a i{
+        font-size: 18px;
+    }
+    .container .menu{
+        height: 150vh;
+    }
+    .container .menu .title .logo h3{
+        font-size: 13px;
+    }
+    .container .menu .title .logo img{
+        width: 50px;
+    }
+    .container .menu .title h1{
+        font-size: 30px;
+    }
+    .container .menu .menu-content{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+    .container .menu .menu-content .card{
+        padding: 15px 30px;
+        width: 325px;
+        gap: 20px;
+    }
+    .container .menu .menu-content .card .element{
+        gap: 20px;
+    }
+    .container .menu .menu-content .card .element a{
+        font-size: 27px;
+        gap: 10px;
+    }
+    .container .menu .menu-content .card .element img{
+        width: 45px;
+    }
+    .container .menu .menu-content .card i{
+        padding: 10px;
+        font-size: 22px;
+    }
+    .container .shop .logo .title img{
+        width: 40px;
+    }
+    .container .shop .logo .title h3{
+        font-size: 13px;
+    }
+    .container .shop .logo h1{
+        font-size: 30px;
+    }
+    .container .shop .shop-content{
+        justify-content: center;
+        gap: 0;
+    }
+    .container .shop .shop-content .hero img{
+        display: none;
+    }
+    .container .shop .shop-content .food-content .food{
+        gap: 20px;
+    }
+    .container .shop .shop-content .food-content .food img{
+        width: 55px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc{
+        gap: 5px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc p{
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc h3{
+        font-size: 10px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews{
+        margin-top: 0px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews i{
+        font-size: 10px;
+    }
+    .container .shop .shop-content .food-content .food .food-desc .reviews span{
+        font-size: 10px;
+    }
+    .container .about .about-content .about-text{
+        width: 80%;
+        gap: 20px;
+    }
+    .container .about .about-content .about-text .about-header{
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title{
+        gap: 10px;
+    }
+    .container .about .about-content .about-text .about-header .about-title h3{
+        font-size: 15px;
+    }
+    .container .about .about-content .about-text .about-header h1{
+        font-size: 35px;
+        line-height: 45px;
+        width: 90%;
+    }
+    .container .about .about-content .about-text .time{
+        width: 300px;
+        height: 45px;
+        margin-top: 10px;
+    }
+    .container .about .about-content .about-text .time p{
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    .container .about .about-content .about-hero{
+        display: none;
+    }
+    .container .reservation .reservation-content{
+        gap: 0;
+        justify-content: center;
+    }
+    .container .reservation .reservation-content .reservation-text{
+        gap: 10px;
+        width: 80%;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo{
+        gap: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title{
+        gap: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo .reservation-title h3{
+        font-size: 14px;
+    }
+    .container .reservation .reservation-content .reservation-text .reservation-logo h1{
+        font-size: 40px;
+    }
+    .container .reservation .reservation-content .reservation-text p{
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        line-height: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .form{
+        width: 90%;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input span{
+        bottom: -22%;
+        left: 3%;
+        font-weight: 600;
+        font-size: 8px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input{
+        padding: 10px 15px;
+    }
+    .container .reservation .reservation-content .reservation-text .form .input input{
+        padding: 13px 25px;
+        font-size: 13px;
+    }
+    .container .reservation .reservation-content .reservation-text button{
+        padding: 13px 25px;
+        font-size: 10px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours{
+        line-height: 25px;
+    }
+    .container .reservation .reservation-content .reservation-text .yours span{
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-text button i{
+        font-size: 15px;
+    }
+    .container .reservation .reservation-content .reservation-hero{
+        display: none;
+    }
+    footer ul{
+        gap: 10px;
+    }
+    footer h2{
+        font-size: 18px;
+    }
+    footer .footer-content{
+        gap: 30px;
+        justify-content: center;
+    }
+    footer .footer-content .footer-logo{
+        gap: 5px;
+    }
+    footer .footer-content .footer-logo img{
+        width: 100px;
+    }
+    footer .footer-content .footer-logo p{
+        font-size: 10px;
+        line-height: 20px;
+        width: 90%;
+    }
+    footer .footer-content .footer-logo .footer-input{
+        width: 80%;
+        padding: 5px 15px;
+        margin-top: 20px;
+        display: none;
+    }
+    footer .footer-content .footer-logo .footer-input input{
+        padding: 10px;
+        font-size: 10px;
+    }
+    footer .footer-content .footer-logo .footer-input i{
+        font-size: 15px;
+    }
+    footer .footer-content .footer-links{
+        display: none;
+    }
+    footer .footer-content .footer-pro{
+        display: none;
+    }
+    footer .footer-content .footer-contact{
+        gap: 10px;
+    }
+    footer .footer-content .footer-contact span{
+        font-size: 13px;
+    }
+    footer .footer-content .footer-contact p{
+        font-size: 10px;
+        line-height: 24px;
+    }
+    footer .footer-content .footer-contact .contact-1,
+    footer .footer-content .footer-contact .contact-2{
+        gap: 5px;
+    }
+    footer .footer-content .footer-contact .contact-1 h1{
+        font-size: 25px;
+    }
+    .container .scroll-btn{
+        padding: 10px;
+    }
+    .container .scroll-btn i{
+        font-size: 20px;
+    }
+}
